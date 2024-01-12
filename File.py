@@ -229,3 +229,87 @@
 #         bot.register_next_step_handler(message, my_currency)
 #
 # bot.polling(none_stop=True)
+
+
+
+
+
+#=========================================================================================================
+# import telebot
+# from bs4 import BeautifulSoup
+# import requests
+#
+# bot = telebot.TeleBot("6911160758:AAERrTi8JMbDril1MiADOYnJrqC3RhLxIoI")
+# URL = "https://bincol.ru/rasp/view.php?id=00312"
+#
+# @bot.message_handler(commands=['start'])
+# def get_schedule(message):
+#     schedule_data = scrape_schedule()
+#
+#     if schedule_data:
+#         formatted_schedule = format_schedule(schedule_data)
+#         bot.send_message(message.chat.id, formatted_schedule, parse_mode='Markdown')
+#     else:
+#         bot.send_message(message.chat.id, "Не удалось получить расписание. Попробуйте позже.")
+#
+# def scrape_schedule():
+#     response = requests.get(URL)
+#
+#     if response.status_code == 200:
+#         soup = BeautifulSoup(response.text, 'html.parser')
+#         table = soup.find('table', attrs={'width': '1024'})
+#
+#         if table:
+#             schedule_data = []
+#             rows = table.find_all('tr')
+#
+#             for row in rows[2:]:
+#                 columns = row.find_all('td')
+#
+#                 # Проверьте, есть ли у строки достаточное количество столбцов перед доступом к ним
+#                 if len(columns) >= 5:
+#                     schedule_entry = {
+#                         'Пара': columns[0].text.strip(),
+#                         'Предмет': columns[1].text.strip(),
+#                         'Аудитория': columns[2].text.strip(),
+#                         'Преподаватель': columns[3].text.strip(),
+#                         'Подгруппа': columns[4].text.strip()
+#                     }
+#                     schedule_data.append(schedule_entry)
+#                 else:
+#                     print(f"Недостаточно столбцов в строке: {row}")
+#
+#             return schedule_data
+#         else:
+#             print("Таблица не найдена на странице.")
+#     else:
+#         print(f"Ошибка: {response.status_code}")
+#
+#     return None
+#
+# def format_schedule(schedule_data):
+#     formatted_schedule = "*Расписание:*\n\n"
+#
+#     for entry in schedule_data:
+#         formatted_schedule += f"*{entry['Пара']}. {entry['Предмет']}* - {entry['Аудитория']}, {entry['Преподаватель']}, *Подгруппа: {entry['Подгруппа']}*\n\n"
+#
+#     return formatted_schedule
+#
+# bot.polling(none_stop=True)
+#
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
